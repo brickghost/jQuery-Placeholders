@@ -1,0 +1,50 @@
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// text field placeholders
+			$('.placeholder').live('blur focus keydown', function(e) {
+				var txt = $(this).data('label');
+				switch(e.type) {
+					case 'focusin':
+						if($(this).val() == $(this).data('label')) {
+							$(this).val("");
+							$(this).removeClass('gray');
+						}
+						break;
+
+					case 'focusout':
+						if($(this).val() == "") {
+							$(this).val($(this).data('label'));
+							$(this).addClass('gray');
+						}
+						break;
+
+					case 'keydown':
+						if($(this).val() != $(this).data('label')) {
+							$(this).removeClass('gray');
+						}
+						break;
+				}
+			});
+		});
+	</script>
+	<style type="text/css">
+		.gray {
+			color:#ccc;
+		}
+		input {
+			font: 2em bold;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<input type="text" name="street" class="placeholder gray" value="Street Address" data-label="Street Address"><br \>
+		<input type="text" name="city" class="placeholder gray" value="City" data-label="City"><br \>
+		<input type="text" name="state" class="placeholder gray" value="State" data-label="State"><br \>
+		<input type="text" name="zip" class="placeholder gray" value="Zip Code" data-label="Zip Code">
+	</form>
+</body>
+</html>

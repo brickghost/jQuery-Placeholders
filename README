@@ -1,0 +1,5 @@
+This code is designed to work on text fields. It could easily be made to work on text areas by finding and replacing "val" with "text"
+
+- add class of "placeholder" to the form object you would like put a placeholder in.
+- provide a "value" attribute in the object
+- provice a "data-label" attribute in the object with the same value as "value"
